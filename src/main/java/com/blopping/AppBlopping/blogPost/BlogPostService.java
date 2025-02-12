@@ -29,12 +29,12 @@ public class BlogPostService {
     }
     public BlogPost findById(Long id) {
         if(!blogPostRepository.existsById(id))
-            throw new EntityNotFoundException("BlogPost not found");
-            return blogPostRepository.findBy(id).get();
+            throw new EntityNotFoundException("BlogPost nope");
+            return blogPostRepository.findById(id).get();
         }
         public void delete(Long id) {
             if(!blogPostRepository.existsById(id))
-                throw new EntityNotFoundException("BlogPost not found");
+                throw new EntityNotFoundException("BlogPost nope");
             blogPostRepository.deleteById(id);
         }
 
