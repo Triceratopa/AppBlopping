@@ -55,7 +55,7 @@ public AuthorDetailResponse findAuthorResponseFromId(Long id) {
     Author author = authorRepository.findById(id).get();
     AuthorDetailResponse authorDetailResponse = new AuthorDetailResponse();
     BeanUtils.copyProperties(findById(id), response);
-    response.setBlogList(author.getBlogList());
+    response.setBlogList(author.getBlogList())
     return authorDetailResponse;
 }
 public Author findById(Long id) {

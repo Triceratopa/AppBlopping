@@ -1,14 +1,16 @@
 package com.blopping.AppBlopping.Author;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.blopping.AppBlopping.blogPost.BlogPost;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,5 +25,11 @@ public class Author {
     private String surname;
     private String email;
     private LocalDate birthDate;
+
+    @OneToMany
+    @ToString.Exclude
+    @JsonIgnoreProperties("author")
+
+    private List<BlogPost> blogList = new ArrayList<>();
 
 }

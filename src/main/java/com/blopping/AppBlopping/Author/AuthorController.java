@@ -9,20 +9,20 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/author")
+@RequestMapping("/api/authors")
 public class AuthorController {
     private final AuthorService authorService;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Author> findAll() {
+    public List<AuthorResponse> findAll() {
         return authorService.findAll();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Author findById(@PathVariable Long id) {
-        return authorService.findById(id);
+    public AuthorDetailResponse findById(@PathVariable Long id) {
+        return authorService.findAuthorResponseFromId(id);
     }
 
     @PostMapping
